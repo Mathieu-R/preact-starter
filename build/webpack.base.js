@@ -2,6 +2,7 @@ var path = require('path')
 var root = path.resolve(__dirname, '../')
 
 module.exports = {
+  devtool: "eval",
   entry: {
     app: [path.join(__dirname, '../src/main.js'), path.join(__dirname, '../src/css/style.css')]
   },
@@ -48,7 +49,13 @@ module.exports = {
       }
     ]
   },
-  plugins: [],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  ],
   devServer: {
     headers: { "Access-Control-Allow-Origin": "*" }
   }
