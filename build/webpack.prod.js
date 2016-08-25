@@ -12,4 +12,4 @@ config.plugins = config.plugins.concat([
 ])
 
 // On extrait le CSS
-config.module.loaders[0].loaders = new ExtractTextPlugin.extract(config.module.loaders[0].loaders)
+config.module.loaders[0].loaders = ExtractTextPlugin.extract(config.module.loaders[0].loaders)
