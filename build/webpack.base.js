@@ -1,4 +1,5 @@
 var path = require('path')
+var webpack = require('webpack')
 var root = path.resolve(__dirname, '../')
 
 module.exports = {

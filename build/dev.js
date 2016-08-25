@@ -10,7 +10,7 @@ var hotMiddleware = require("webpack-hot-middleware")(compiler)
 var server = new webpackDevServer(compiler, {
   hot: true,
   //contentBase: './',
-  quiet: false,
+  quiet: true,
   noInfo: true,
   publicPath: config.output.publicPath,
   stats: { colors: true }
