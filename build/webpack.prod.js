@@ -5,7 +5,7 @@ var ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
 config.plugins = config.plugins.concat([
   new ProgressBarPlugin(),
-  new ExtractTextPlugin('[name].[contenthash:8].css'),
+  new ExtractTextPlugin('[name].[contenthash:8].css')
   //new webpack.optimize.UglifyJsPlugin({
   //  comments: false
   //})
