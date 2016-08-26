@@ -3,14 +3,14 @@ var config = require('./webpack.dev.js')
 var webpackDevServer = require('webpack-dev-server')
 var chokidar = require('chokidar')
 var compiler = webpack(config)
-var port = 8081
+var port = 8080
 config.entry.app.unshift("webpack-hot-middleware/client")
 var hotMiddleware = require("webpack-hot-middleware")(compiler)
 
 var server = new webpackDevServer(compiler, {
   hot: true,
   //contentBase: './',
-  quiet: true,
+  quiet: false,
   noInfo: true,
   publicPath: config.output.publicPath,
   stats: { colors: true }

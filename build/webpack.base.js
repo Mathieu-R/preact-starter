@@ -35,6 +35,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
+        babelrc: false,
         query: {
           presets: ["es2015", "stage-2"],
           plugins: ['transform-runtime']
@@ -50,13 +51,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    })
-  ],
+  plugins: [],
   devServer: {
     headers: { "Access-Control-Allow-Origin": "*" }
   }
