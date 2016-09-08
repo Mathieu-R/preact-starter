@@ -5,7 +5,7 @@ var root = path.resolve(__dirname, '../')
 module.exports = {
   devtool: "eval",
   entry: {
-    app: [path.join(__dirname, '../src/main.js'), path.join(__dirname, '../src/css/style.css')]
+    app: [path.join(__dirname, '../src/main.js')]
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -19,7 +19,6 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        //loaders: extractCSS.extract(["css"]),
         loaders: ["style", "css"]
       },
       {
