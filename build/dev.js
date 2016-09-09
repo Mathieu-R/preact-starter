@@ -14,7 +14,7 @@ var server = new webpackDevServer(compiler, {
   quiet: false,
   noInfo: false,
   publicPath: config.output.publicPath,
-  stats: { colors: true }
+  stats: { colors: true, chunks: false }
 })
 
 server.use(hotMiddleware)
