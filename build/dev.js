@@ -4,7 +4,7 @@ var webpackDevServer = require('webpack-dev-server')
 var path = require('path')
 var chokidar = require('chokidar')
 var compiler = webpack(config)
-var port = 8081
+var port = 8088
 config.entry.app.unshift("webpack-hot-middleware/client")
 var hotMiddleware = require("webpack-hot-middleware")(compiler)
 

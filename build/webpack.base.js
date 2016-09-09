@@ -13,7 +13,11 @@ module.exports = {
     publicPath: '/dist'
   },
   resolve: {
-    extensions: ['', '.js', '.css', 'vue']
+    extensions: ['', '.js', '.css', '.vue', '.json'],
+    alias: {
+        src: path.join(__dirname, '../src'),
+        components: path.join(__dirname, '../src/components')
+    }
   },
   module: {
     loaders: [
@@ -34,6 +38,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
+        babelrc: false,
         query: {
           presets: ["es2015", "stage-2"],
           plugins: ['transform-runtime']
@@ -49,13 +54,10 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    })
-  ],
+  vue: {
+      loaders: {}
+  },
+  plugins: [],
   devServer: {
     headers: { "Access-Control-Allow-Origin": "*" }
   }
