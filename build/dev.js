@@ -10,7 +10,7 @@ var hotMiddleware = require("webpack-hot-middleware")(compiler)
 
 var server = new webpackDevServer(compiler, {
   hot: true,
-  contentBase: path.join(__dirname, '../src'),
+  contentBase: path.join(__dirname, '../'),
   quiet: false,
   noInfo: false,
   publicPath: config.output.publicPath,
