@@ -10,10 +10,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].js',
-    publicPath: '/dist'
+    publicPath: '/'
   },
   resolve: {
-    extensions: ['', '.js', '.css', '.vue', '.json'],
+    extensions: ['', '.js', '.css', '.scss', '.vue', '.json'],
     alias: {
         src: path.join(__dirname, '../src'),
         components: path.join(__dirname, '../src/components')
@@ -32,7 +32,7 @@ module.exports = {
       {
         test: /\.scss$/,
         vue: 'scss',
-        loaders: ['css', 'sass']
+        loaders: ['style', 'css', 'sass']
       },
       {
         test: /\.js$/,

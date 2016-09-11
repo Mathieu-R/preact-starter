@@ -3,7 +3,7 @@ var webpack = require("webpack")
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 config.devtool = 'cheap-module-eval-source-map'
-config.entry.app.unshift("./dev-client.js");
+config.entry.app.unshift("./build/dev-client.js");
 
 config.plugins.push(
   new webpack.DefinePlugin({
