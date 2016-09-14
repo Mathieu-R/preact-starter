@@ -37,8 +37,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        babelrc: false,
+        loaders: ['babel', 'webpack-module-hot-accept'],
         query: {
           presets: ["es2015", "stage-2"],
           plugins: ['transform-runtime']
