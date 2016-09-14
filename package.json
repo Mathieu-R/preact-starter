@@ -37,8 +37,8 @@
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^8.5.3",
     "vue-style-loader": "^1.0.0",
-    "webpack": "^2.1.0-beta.20",
-    "webpack-dev-server": "^2.1.0-beta.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1",
     "webpack-hot-middleware": "^2.12.2"
   }
 }
