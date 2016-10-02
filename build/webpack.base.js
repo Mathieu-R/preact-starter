@@ -37,11 +37,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loaders: ['babel', 'webpack-module-hot-accept'],
-        query: {
-          presets: ["es2015", "stage-2"],
-          plugins: ['transform-runtime']
-        }
+        loaders: ['babel', 'webpack-module-hot-accept']
       },
       {
         test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)$/,
@@ -58,6 +54,9 @@ module.exports = {
   },
   plugins: [],
   devServer: {
+    proxy: {
+      
+    },
     headers: { "Access-Control-Allow-Origin": "*" }
   }
 }
