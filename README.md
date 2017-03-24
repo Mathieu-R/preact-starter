@@ -61,18 +61,21 @@ Editorconfig keeps a consistant configuration between your text editor.
 
 
 ##### Installation :
+- Note : you can also use `npm install` but yarn is advised (and also much faster).
 
 ```
 yarn
 ```    
 
 ##### Dev :
+Launch the `webpack-dev-server` and try to launch a `node server` from **back/server.js** in parallel.
 
 ```
-yarn start
+yarn dev
 ```
 
 ##### Build :      
+Generate the `assets` _(css, js,...)_ in **dist** folder.
 
 ```
 yarn build
