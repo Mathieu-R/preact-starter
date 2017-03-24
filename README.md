@@ -1,4 +1,81 @@
-# webpack
-Template - Webpack
+# Webpack 2 - boilerplate
 
-Inspiré d'un tuto de www.grafikart.fr
+This boilerplate for **webpack 2** is designed to work with _preact_.    
+However, you can modify this boilerplate as you want _(e.g. to use it with Vue )_    
+
+## Javascript :
+
+All the javascript files _(.js, .jsx)_ are transpiled with babel and use sourcemaps for a better and easier debugging _(what you see in the devtools is the original file and not the transpiled one)_
+
+In case you want more informations about **devtools** : https://webpack.js.org/configuration/devtool/
+
+Feel free to use your owns in the _config.js_ file.
+
+## Styles :
+
+You can work with **.scss** files.  
+_dev_ : css is automatically inlined in the **index.html**.   
+_prod_ : css is extracted in its own **.css** file.
+
+### Config :
+
+```
+module.exports = {
+    title: '', // <title> of index.html
+    port: {
+        front: 3000, // port for devServer
+        back: 8080 // port for backend api (proxytable)
+    },
+    entry: {
+        front: [path.resolve(__dirname, 'front/static/js/components/app.js')], // entrypoint for front js file
+    },
+    vendor: ['preact'],
+    devtool: production ? 'source-map' : 'eval-source-map',
+    componentsPath: path.resolve(__dirname, 'front/static/js/components'), // path for components (aliases)
+    staticPath: path.resolve(__dirname, 'front/static'), // path for static files (aliases)
+}
+```
+
+### Plugins :
+
+_ExtractTextPlugin_ : Extract the css in its own file.    
+_CommonsChunkPlugin_ : Avoid duplication of common shared modules.
+
+_DefinePlugin_ : Allows to define global constants.    
+_OccurenceOrderPlugin_ : "Assign the module and chunk ids by occurrence count. Reduce total file size." (1)    
+_UglifyJSPlugin_ : Minify the js so it is lightweight
+
+_HotModuleReplacementPlugin_ : Update on the fly the modules that have changed and live reload it (if you authorize with `module.hot.accept()`).    
+_NoEmitOnErrorPlugin_ : Webpack does not compile assets with errors.     
+_NamedModulePlugin_ : Name the modules whith their own names in devtool instead of showing numbers.
+_HtmlWebpackPlugin_ : Generate an html files with js and css built-in.    
+_BundleAnalyzerPlugin_ : Show a graph to analyse to weight of every module / bundle.
+_DashboardPlugin_ : Show a dashboard in the terminal when you are using webpack-dev-server.
+
+### Eslint and Editorconfig :
+
+Eslint lints your code, to help you having a consistant code.    
+Editorconfig keeps a consistant configuration between your text editor.
+
+### Utilisation :
+
+
+##### Installation :
+
+```
+yarn
+```    
+
+##### Dev :
+
+```
+yarn start
+```
+
+##### Build :      
+
+```
+yarn build
+```
+
+(1) https://github.com/webpack/docs/wiki/list-of-plugins
