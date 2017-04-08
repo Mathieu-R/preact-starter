@@ -11,8 +11,5 @@ rendering(App);
 // preact hmr
 if (module.hot) {
   require('preact/devtools'); // use react devtools only in dev
-  module.hot.accept('./components/app', _ => {
-    const nextRootContainer = require('./components/app');
-    requestAnimationFrame(rendering(nextRootContainer));
-  })
+  module.hot.accept('./components/app', _ => rendering(App));
 }
