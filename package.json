@@ -2,7 +2,7 @@
   "name": "webpack3-boilerplate",
   "version": "1.0.0",
   "description": "webpack3-boilerplate",
-  "main": "front/js/main.js",
+  "main": "front/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently -k \"yarn server\" \"yarn watch\"",
