@@ -30,9 +30,8 @@ if (production) {
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
-      output: {
-        comments: false
-      },
+      sourceMap: true,
+      comments: false,
       compress: {
         unused: true,
         warnings: false,
@@ -40,9 +39,11 @@ if (production) {
         comparisons: true,
         sequences: true,
         dead_code: true,
-        evaluates: true,
         if_return: true,
         join_vars: true
+      },
+      output: {
+        comments: false
       }
     })
   );
@@ -54,9 +55,9 @@ if (production) {
     new htmlWebpackPlugin({ // generate index.html
       title: config.title,
       filename: './index.html',
-    }),
+    })
     //new BundleAnalyzerPlugin(), // analyse the bundles and their contents
-    new DashboardPlugin({port: 8085})
+    //new DashboardPlugin({port: 8085})
   );
 };
 
@@ -82,7 +83,7 @@ const common = {
   module: {
     rules: [{
       test: /\.hbs$/,
-      loader: "handlebars-loader"
+      loader: 'handlebars-loader'
     },{
       test: /\.scss$/,
       use: ExtractTextPlugin.extract({

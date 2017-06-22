@@ -1,5 +1,5 @@
 const path = require('path');
-const production = process.env.NODE_ENV === "production";
+const production = process.env.NODE_ENV === 'production';
 
 module.exports = {
     title: '', // <title> of index.html

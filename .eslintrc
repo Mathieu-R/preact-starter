@@ -1,9 +1,7 @@
 {
+  "extends": "google",
   "env": {
     "browser": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 2017
   },
   "rules": {
     "space-before-function-paren": [2, {"named": "always", "anonymous": "always"}],
@@ -19,7 +17,7 @@
     }],
     "no-unused-expressions": [2, {
       "allowShortCircuit": true,
-      "allowTernary": true
+      "allowTernary": false
     }],
     "no-unused-vars": [2, {
       "vars": "all",
