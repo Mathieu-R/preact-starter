@@ -1,6 +1,6 @@
-# Webpack 2 - boilerplate
+# Webpack 3 - boilerplate
 
-This boilerplate for **webpack 2** is designed to work with _preact_.    
+This boilerplate for **webpack 3** is designed to work with _preact_.    
 However, you can modify this boilerplate as you want _(e.g. to use it with Vue )_    
 
 ## Javascript :
