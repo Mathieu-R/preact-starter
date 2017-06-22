@@ -38,19 +38,19 @@ module.exports = {
 
 ### Plugins :
 
-_ExtractTextPlugin_ : Extract the css in its own file.    
-_CommonsChunkPlugin_ : Avoid duplication of common shared modules.
+`ExtractTextPlugin` : Extract the css in its own file.    
+`CommonsChunkPlugin` : Avoid duplication of common shared modules.
 
-_DefinePlugin_ : Allows to define global constants.    
-_OccurenceOrderPlugin_ : "Assign the module and chunk ids by occurrence count. Reduce total file size." (1)    
-_UglifyJSPlugin_ : Minify the js so it is lightweight
+`DefinePlugin` : Allows to define global constants.    
+`OccurenceOrderPlugin` : "Assign the module and chunk ids by occurrence count. Reduce total file size." (1)    
+`UglifyJSPlugin` : Minify the js so it is lightweight
 
-_HotModuleReplacementPlugin_ : Update on the fly the modules that have changed and live reload it (if you authorize with `module.hot.accept()`).    
-_NoEmitOnErrorPlugin_ : Webpack does not compile assets with errors.     
-_NamedModulePlugin_ : Name the modules whith their own names in devtool instead of showing numbers.
-_HtmlWebpackPlugin_ : Generate an html files with js and css built-in.    
-_BundleAnalyzerPlugin_ : Show a graph to analyse to weight of every module / bundle.
-_DashboardPlugin_ : Show a dashboard in the terminal when you are using webpack-dev-server.
+`HotModuleReplacementPlugin` : Update on the fly the modules that have changed and live reload it (if you authorize with `module.hot.accept()`).    
+`NoEmitOnErrorPlugin` : Webpack does not compile assets with errors.     
+`NamedModulePlugin` : Name the modules whith their own names in devtool instead of showing numbers.
+`HtmlWebpackPlugin` : Generate an html files with js and css built-in.    
+`BundleAnalyzerPlugin` : Show a graph to analyse to weight of every module / bundle.
+`DashboardPlugin` : Show a dashboard in the terminal when you are using webpack-dev-server.
 
 ### Eslint and Editorconfig :
 
