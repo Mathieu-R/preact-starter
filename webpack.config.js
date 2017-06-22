@@ -121,9 +121,9 @@ const common = {
   },
   plugins: plugins,
   devServer: {
-    proxy: {
+    proxy: config.entry.back ? {
       "*": `http://localhost:${config.port.back}`
-    },
+    } : false,
     contentBase: config.contentBase,
     hot: true,
     hotOnly: true,

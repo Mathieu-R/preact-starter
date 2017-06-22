@@ -10,7 +10,7 @@ module.exports = {
     //contentBase: path.resolve(__dirname, 'front'),
     entry: {
         front: [path.resolve(__dirname, 'front/index.js')], // entrypoint for front js file
-        //back: [path.resolve(__dirname, 'back/server.js')] // entrypoint for server js file
+        back: [path.resolve(__dirname, 'back/server.js')] // entrypoint for server js file
     },
     vendor: ['preact'],
     devtool: production ? 'source-map' : 'eval-source-map',

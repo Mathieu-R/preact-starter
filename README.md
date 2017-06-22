@@ -74,6 +74,23 @@ Launch the `webpack-dev-server` and try to launch a `node server` from **back/se
 yarn dev
 ```
 
+> In case you don't want to launch a node server (no node backend in your app).
+Launch the `webpack-dev-server` only.
+```js
+// config.js
+module.exports = {
+    ....
+    entry: {
+        ...
+        back: false
+    }
+    ...
+```
+
+```
+yarn watch
+```
+
 ##### Build :      
 Generate the `assets` _(css, js,...)_ in **dist** folder.
 
