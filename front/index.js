@@ -3,7 +3,7 @@ import App from './components/app'
 
 // render a root component in <body>
 const rendering = Component => {
-  const root = render(<App/>, document.body, root);
+  const root = render(<Component/>, document.body, root);
 };
 
 // preact hmr
