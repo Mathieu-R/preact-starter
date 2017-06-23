@@ -17,6 +17,7 @@ const plugins = [
   new webpack.optimize.CommonsChunkPlugin({
     name: 'commons',
     filename: 'commons.js',
+    //children: true,
     minChunks: 2,
   }),
   new webpack.optimize.ModuleConcatenationPlugin()
@@ -81,8 +82,8 @@ if (production) {
     new htmlWebpackPlugin({ // generate index.html
       title: config.title,
       filename: './index.html',
-    })
-    //new BundleAnalyzerPlugin(), // analyse the bundles and their contents
+    }),
+    new BundleAnalyzerPlugin(), // analyse the bundles and their contents
     //new DashboardPlugin({port: 8085})
   );
 };
