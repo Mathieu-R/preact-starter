@@ -1,9 +1,10 @@
 import { h, render } from 'preact'
 import App from './components/app'
 
+let root;
 // render a root component in <body>
 const rendering = Component => {
-  const root = render(<Component/>, document.body, root);
+  root = render(<Component/>, document.body, root);
 };
 
 // preact hmr
@@ -12,3 +13,4 @@ if (module.hot) {
   module.hot.accept('./components/app', rendering(App));
 }
 
+rendering(App);
