@@ -8,8 +8,11 @@ const rendering = Component => {
 
 // preact hmr
 if (module.hot) {
+  console.log('HMR');
   require('preact/devtools'); // use react devtools only in dev
   module.hot.accept('./components/app', rendering(App));
 }
 
-rendering(App);
+
+
+//rendering(App);

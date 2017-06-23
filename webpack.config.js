@@ -21,6 +21,31 @@ const plugins = [
   })
 ];
 
+const devServer = {
+  contentBase: config.contentBase,
+  hot: true,
+  hotOnly: true,
+  historyApiFallback: true,
+  port: config.port.front,
+  compress: production,
+  inline: !production,
+  hot: !production,
+  stats: {
+    assets: true,
+    children: false,
+    chunks: true,
+    hash: true,
+    modules: false,
+    publicPath: false,
+    timings: true,
+    version: false,
+    warnings: true,
+    colors: {
+      green: '\u001b[32m'
+    }
+  }
+}
+
 if (production) {
   plugins.push(
     new webpack.DefinePlugin({
@@ -60,6 +85,12 @@ if (production) {
     //new DashboardPlugin({port: 8085})
   );
 };
+
+if (config.entry.back) {
+  Object.assign(devServer, {proxy: {
+    "*": `http://localhost:${config.port.back}`
+  }});
+}
 
 
 const common = {
@@ -119,34 +150,8 @@ const common = {
   performance: {
     hints: 'warning'
   },
-  plugins: plugins,
-  devServer: {
-    proxy: config.entry.back ? {
-      "*": `http://localhost:${config.port.back}`
-    } : false,
-    contentBase: config.contentBase,
-    hot: true,
-    hotOnly: true,
-    historyApiFallback: true,
-    port: config.port.front,
-    compress: production,
-    inline: !production,
-    hot: !production,
-    stats: {
-      assets: true,
-      children: false,
-      chunks: true,
-      hash: true,
-      modules: false,
-      publicPath: false,
-      timings: true,
-      version: false,
-      warnings: true,
-      colors: {
-        green: '\u001b[32m'
-      }
-    }
-  }
+  plugins,
+  devServer
 };
 
 module.exports = common;
