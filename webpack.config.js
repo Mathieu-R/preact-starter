@@ -18,7 +18,8 @@ const plugins = [
     name: 'commons',
     filename: 'commons.js',
     minChunks: 2,
-  })
+  }),
+  new webpack.optimize.ModuleConcatenationPlugin()
 ];
 
 const devServer = {
