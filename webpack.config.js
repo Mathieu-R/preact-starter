@@ -85,7 +85,7 @@ if (production) {
     new htmlWebpackPlugin({ // generate index.html
       title: config.title,
       filename: './index.html',
-    }),
+    })
     //new BundleAnalyzerPlugin(), // analyse the bundles and their contents
     //new DashboardPlugin({port: 8085})
   );
