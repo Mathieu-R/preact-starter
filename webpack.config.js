@@ -51,7 +51,7 @@ if (production) {
   plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': production ? JSON.stringify('production') : JSON.stringify('development')
+        'NODE_ENV': JSON.stringify('production')
       }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
