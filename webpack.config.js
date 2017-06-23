@@ -15,11 +15,14 @@ const extractSass = new ExtractTextPlugin({
 const plugins = [
   extractSass,
   new webpack.optimize.CommonsChunkPlugin({
-    name: 'commons',
-    filename: 'commons.js',
+    name: 'common',
+    //filename: 'common.js',
     //children: true,
-    minChunks: 2,
+    //minChunks: 2,
   }),
+  /*new webpack.optimize.CommonsChunkPlugin({
+    name: 'manifest'
+  }),*/
   new webpack.optimize.ModuleConcatenationPlugin()
 ];
 
@@ -103,7 +106,7 @@ const common = {
   },
   output: {
     path: path.resolve('dist'),
-    filename: '[name].bundle.js',
+    filename: '[name].bundle.[hash].js',
     publicPath: '/'
   },
   resolve: {
