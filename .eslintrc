@@ -1,7 +1,12 @@
 {
   "extends": "google",
   "env": {
-    "browser": true
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 8
   },
   "rules": {
     "space-before-function-paren": [2, {"named": "always", "anonymous": "always"}],
