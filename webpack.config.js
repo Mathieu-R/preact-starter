@@ -15,14 +15,8 @@ const extractSass = new ExtractTextPlugin({
 const plugins = [
   extractSass,
   new webpack.optimize.CommonsChunkPlugin({
-    name: 'common',
-    //filename: 'common.js',
-    //children: true,
-    //minChunks: 2,
+    name: 'common'
   }),
-  /*new webpack.optimize.CommonsChunkPlugin({
-    name: 'manifest'
-  }),*/
   new webpack.optimize.ModuleConcatenationPlugin()
 ];
 
@@ -38,16 +32,13 @@ const devServer = {
   stats: {
     assets: true,
     children: false,
-    chunks: true,
+    chunks: false,
     hash: true,
     modules: false,
     publicPath: false,
     timings: true,
     version: false,
-    warnings: true,
-    colors: {
-      green: '\u001b[32m'
-    }
+    warnings: true
   }
 }
 
@@ -110,7 +101,7 @@ const common = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.html', '.hbs', '.js', '.jsx', '.css', '.scss', '.vue', '.json', '.jpg', '.png', '.svg'],
+    extensions: ['.js', '.jsx', '.css', '.scss'],
     alias: {
       components: config.componentsPath,
       src: config.staticPath
@@ -118,9 +109,6 @@ const common = {
   },
   module: {
     rules: [{
-      test: /\.hbs$/,
-      loader: 'handlebars-loader'
-    },{
       test: /\.scss$/,
       use: ExtractTextPlugin.extract({
         // style-loader in developpment
@@ -138,19 +126,7 @@ const common = {
         limit: 10000,
         name: '[name]-[hash:7].[ext]'
       }
-    },{
-      test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
-      loader: 'url-loader',
-      query: {
-        name: '[name]-[hash:7].[ext]',
-        limit: 10000,
-      }
     }]
-  },
-  stats: {
-    colors: {
-      green: '\u001b[32m'
-    }
   },
   performance: {
     hints: 'warning'
