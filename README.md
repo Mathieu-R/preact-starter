@@ -101,8 +101,6 @@ yarn build
 (1) https://github.com/webpack/docs/wiki/list-of-plugins
 
 ##### TODO :
-- Update dependencies
-- Use `template`in html plugin
 - Use babili instead of UglifyJS for optimizations
 - minify CSS => `options: {minimize: true}`
 

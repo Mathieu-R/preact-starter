@@ -74,8 +74,7 @@ if (production) {
     new webpack.NoEmitOnErrorsPlugin(), // do not build bundle if they have errors
     new webpack.NamedModulesPlugin(), // print more readable module names in console on HMR,
     new htmlWebpackPlugin({ // generate index.html
-      title: config.title,
-      filename: './index.html',
+      template: config.template,
     })
     //new BundleAnalyzerPlugin(), // analyse the bundles and their contents
     //new DashboardPlugin({port: 8085})
@@ -113,7 +112,8 @@ const common = {
       use: ExtractTextPlugin.extract({
         // style-loader in developpment
         fallback: 'style-loader',
-        use: ['css-loader', 'sass-loader']
+        use: ['css-loader', 'sass-loader'],
+        options: {minimize: true}
       })
     },{
       test: /\.js|jsx$/,
