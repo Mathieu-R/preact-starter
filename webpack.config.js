@@ -2,7 +2,6 @@ const config = require('./config.js');
 const path = require('path');
 const webpack = require('webpack');
 const production = process.env.NODE_ENV === 'production';
-const nodeExternals = require('webpack-node-externals');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -112,8 +111,7 @@ const common = {
       use: ExtractTextPlugin.extract({
         // style-loader in developpment
         fallback: 'style-loader',
-        use: ['css-loader', 'sass-loader'],
-        options: {minimize: true}
+        use: ['css-loader', 'sass-loader']
       })
     },{
       test: /\.js|jsx$/,
