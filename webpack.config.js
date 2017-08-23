@@ -15,8 +15,7 @@ const plugins = [
   extractSass,
   new webpack.optimize.CommonsChunkPlugin({
     name: 'common'
-  }),
-  new webpack.optimize.ModuleConcatenationPlugin()
+  })
 ];
 
 const devServer = {
@@ -43,6 +42,7 @@ const devServer = {
 
 if (production) {
   plugins.push(
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
@@ -95,7 +95,7 @@ const common = {
   },
   output: {
     path: path.resolve('dist'),
-    filename: '[name].bundle.[hash].js',
+    filename: production ? '[name].bundle.[hash].js' : [name].bundle.js,
     publicPath: '/'
   },
   resolve: {
