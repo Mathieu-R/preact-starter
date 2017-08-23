@@ -116,6 +116,7 @@ const common = {
     },{
       test: /\.js|jsx$/,
       exclude: /node_modules/,
+      include: path.resolve(__dirname, "src"),
       loader: 'babel-loader'
     },{
       test: /\.(ico|png|jpg|jpeg|gif|svg|woff2?|eot|ttf)$/,
