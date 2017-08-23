@@ -11,7 +11,7 @@ module.exports = {
         back: [path.resolve(__dirname, 'back/server.js')] // entrypoint for server js file
     },
     vendor: ['preact'],
-    devtool: production ? 'source-map' : 'eval-source-map',
+    devtool: production ? false : 'eval-cheap-module-source-map',
     componentsPath: path.resolve(__dirname, 'src/components'), // path for components (aliases)
     staticPath: path.resolve(__dirname, 'src'), // path for static files (aliases)
     template: './src/index.html' // path of template
