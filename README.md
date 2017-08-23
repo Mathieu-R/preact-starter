@@ -100,6 +100,9 @@ yarn build
 
 (1) https://github.com/webpack/docs/wiki/list-of-plugins
 
+##### Caveat : 
+- By default, only js files in `src` are transpiled as recommended by https://webpack.js.org/guides/build-performance/
+
 ##### TODO :
 - Use babili instead of UglifyJS for optimizations
 - minify CSS => `options: {minimize: true}`
