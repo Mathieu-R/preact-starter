@@ -2,10 +2,11 @@
 
 This boilerplate for **webpack 3** is designed to work with _preact_.    
 However, you can modify this boilerplate as you want _(e.g. to use it with Vue )_    
+> If you want to have an example of webpack with vue and ssr, check my demo : https://github.com/Mathieu-R/vue-ssr-demo
 
 ## Javascript :
 
-All the javascript files _(.js, .jsx)_ are transpiled with babel and use sourcemaps for a better and easier debugging _(what you see in the devtools is the original file and not the transpiled one)_
+All the **javascript** files are transpiled with babel and use sourcemaps (in developpment) for a better and easier debugging _(what you see in the devtools is the original file and not the transpiled one)_
 
 In case you want more informations about **devtools** : https://webpack.js.org/configuration/devtool/
 
@@ -51,17 +52,17 @@ module.exports = {
 `HtmlWebpackPlugin` : Generate an html files with js and css built-in.    
 `BundleAnalyzerPlugin` : Show a graph to analyse to weight of every module / bundle.
 `DashboardPlugin` : Show a dashboard in the terminal when you are using webpack-dev-server.
+`ModuleConcatenationPlugin` : Enable scope hoisting.
 
 ### Eslint and Editorconfig :
 
 Eslint lints your code, to help you having a consistant code.    
 Editorconfig keeps a consistant configuration between your text editor.
 
-### Utilisation :
-
+### Usage :
 
 ##### Installation :
-- Note : you can also use `npm install` but yarn is advised (and also much faster).
+- Note : you can also use `npm install`.
 
 ```
 yarn
@@ -100,10 +101,10 @@ yarn build
 
 (1) https://github.com/webpack/docs/wiki/list-of-plugins
 
-##### Caveat : 
+### Caveat : 
 - By default, only js files in `src` are transpiled as recommended by https://webpack.js.org/guides/build-performance/
 
-##### TODO :
+#### TODO :
 - Use babili instead of UglifyJS for optimizations
 - minify CSS => `options: {minimize: true}`
 
