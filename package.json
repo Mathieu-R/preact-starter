@@ -4,7 +4,7 @@
   "description": "webpack3-boilerplate",
   "main": "src/index.js",
   "scripts": {
-    "patch": "npm version bump",
+    "patch": "npm version patch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack-dev-server --config build/webpack.config.js",
     "build --report": "npm run build && webpack-bundle-analyzer",
