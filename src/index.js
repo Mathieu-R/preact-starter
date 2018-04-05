@@ -1,7 +1,12 @@
-import { h, render } from 'preact'
-import App from './components/app'
+import { render } from 'preact';
+import App from './components/app';
 
-let root;
+if (process.env.NODE_ENV === 'development') {
+  // react devtools
+  require('preact/debug');
+}
+
+let root = document.body.firstElementChild;
 // render a root component in <body>
 const rendering = Component => {
   root = render(<Component/>, document.body, root);
@@ -9,8 +14,7 @@ const rendering = Component => {
 
 // preact hmr
 if (module.hot) {
-  require('preact/devtools'); // use react devtools only in dev
-  module.hot.accept('./components/app', rendering(App));
+  module.hot.accept('./components/app', () => rendering(App));
 }
 
 rendering(App);

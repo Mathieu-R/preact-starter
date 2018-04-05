@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { Component } from 'preact';
 import 'src/styles/style';
 
 class App extends Component {

@@ -1,8 +1,7 @@
-# Webpack 3 - boilerplate
+# Webpack 4 - Preact
 
-This boilerplate for **webpack 3** is designed to work with _preact_.    
+This boilerplate for **webpack 4** is designed to work with _preact_.    
 However, you can modify this boilerplate as you want _(e.g. to use it with Vue )_    
-> If you want to have an example of webpack with vue and ssr, check my demo : https://github.com/Mathieu-R/vue-ssr-demo
 
 ## Javascript :
 
@@ -103,8 +102,4 @@ yarn build
 
 ### Caveat : 
 - By default, only js files in `src` are transpiled as recommended by https://webpack.js.org/guides/build-performance/
-
-#### TODO :
-- Use babili instead of UglifyJS for optimizations
-- minify CSS => `options: {minimize: true}`
 

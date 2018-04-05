@@ -1,6 +1,6 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "modules": false,
       "targets": {
         "browsers": ["last 2 versions", "IE >= 9"]
@@ -8,6 +8,8 @@
     }]
   ],
   "plugins": [
-    ["transform-react-jsx", {"pragma": "h"}]
+    ["@babel/plugin-transform-react-jsx", {"pragma": "h"}],
+    ["transform-react-remove-prop-types"],
+    ["module:fast-async", {"spec": true}]
   ]
 }

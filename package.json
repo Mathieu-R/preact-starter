@@ -1,19 +1,17 @@
 {
-  "name": "webpack3-boilerplate",
+  "name": "preact-starter",
   "version": "1.0.2",
-  "description": "webpack3-boilerplate",
+  "description": "preact-starter",
   "main": "src/index.js",
   "scripts": {
-    "patch": "npm version patch",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack-dev-server --config build/webpack.config.js",
+    "start": "webpack-dev-server --config build/webpack.config.js",
     "build --report": "npm run build && webpack-bundle-analyzer",
     "build": "rm -rf ./dist && npm run build:client",
     "build:client": "NODE_ENV=production webpack --config build/webpack.config.js -p"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mathieu-R/webpack3-boilerplate.git"
+    "url": "git+https://github.com/Mathieu-R/preact-starter.git"
   },
   "keywords": [
     "webpack",
@@ -22,41 +20,44 @@
   "author": "Mathieu-R",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Mathieu-R/webpack3-boilerplate/issues"
+    "url": "https://github.com/Mathieu-R/preact-starter/issues"
   },
-  "homepage": "https://github.com/Mathieu-R/webpack3-boilerplate#readme",
+  "homepage": "https://github.com/Mathieu-R/preact-starter#readme",
   "dependencies": {
-    "preact": "^8.2.1",
-    "preact-render-to-string": "^3.6.3"
+    "preact": "^8.2.7",
+    "preact-render-to-string": "^3.7.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
-    "babel-minify-webpack-plugin": "^0.2.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-babili": "^0.1.4",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
-    "copy-webpack-plugin": "^4.3.1",
-    "css-loader": "^0.28.4",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "@babel/cli": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/plugin-transform-react-jsx": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "babel-loader": "^8.0.0-beta.2",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "fast-async": "^6.3.1",
+    "file-loader": "^1.1.11",
     "friendly-errors-webpack-plugin": "^1.6.1",
-    "html-webpack-plugin": "^2.30.1",
-    "node-sass": "^4.5.3",
-    "optimize-css-assets-webpack-plugin": "^3.2.0",
-    "preload-webpack-plugin": "^2.2.0",
-    "progress-bar-webpack-plugin": "^1.10.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.8.3",
+    "optimize-css-assets-webpack-plugin": "^4.0.0",
+    "preload-webpack-plugin": "^3.0.0-alpha.1",
+    "progress-bar-webpack-plugin": "^1.11.0",
     "resource-hints-webpack-plugin": "0.0.1",
-    "sass-loader": "^6.0.3",
-    "script-ext-html-webpack-plugin": "^1.8.8",
-    "source-map-loader": "^0.2.1",
-    "style-loader": "^0.18.2",
-    "url-loader": "^0.5.9",
-    "webpack": "^3.5.4",
-    "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^2.7.1",
+    "sass-loader": "^6.0.7",
+    "script-ext-html-webpack-plugin": "^2.0.1",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.5.0",
+    "webpack-bundle-analyzer": "^2.11.1",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-middleware": "^3.1.0",
+    "webpack-dev-server": "^3.1.1",
     "webpack-externals-plugin": "^1.0.0",
-    "workbox-webpack-plugin": "^2.1.2"
+    "workbox-webpack-plugin": "^3.0.1"
   }
 }
