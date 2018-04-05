@@ -3,7 +3,6 @@ const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MinifyPlugin = require("babel-minify-webpack-plugin");
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
@@ -49,9 +48,6 @@ const devServer = {
 if (production) {
   plugins.push(
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new MinifyPlugin({}, {
-      comments: false
-    }),
     // Compress extracted CSS.
     // Possible duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
@@ -68,7 +64,7 @@ if (production) {
       chunksSortMode: 'dependency'
     }),
     new ScriptExtHtmlWebpackPlugin({
-      preload: ['manifest.bundle.*.js', 'async.bundle.*.js', 'common.bundle.*.js', 'app.bundle.*.js'],
+      preload: ['runtime~app.bundle.*.js', 'vendor~app.bundle.*.js', 'app.bundle.*.js'],
       prefetch: {
         test: /\.js$/,
         chunks: 'async'
@@ -94,7 +90,6 @@ if (production) {
 } else {
   plugins.push(
     new webpack.HotModuleReplacementPlugin(), // hot reload
-    new webpack.NoEmitOnErrorsPlugin(), // do not build bundle if they have errors
     new htmlWebpackPlugin({ // generate index.html
       template: config.template,
     }),
@@ -104,7 +99,10 @@ if (production) {
 
 const common = {
   devtool: config.devtool,
+  // webpack 4 - optimization auto
   mode: production ? 'production' : 'development',
+  // do not continue build if any errors
+  bail: true,
   entry: {
     app: config.entry.front
   },
@@ -116,6 +114,11 @@ const common = {
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.scss'],
     alias: {
+      // in order to use css-transition-group
+      // you have to aliase react and react-dom
+      react: 'preact-compat',
+			'react-dom': 'preact-compat',
+			'react-addons-css-transition-group': 'preact-css-transition-group',
       components: config.componentsPath,
       routes: config.routesPath,
       src: config.staticPath
@@ -142,6 +145,12 @@ const common = {
         name: '[name]-[hash:7].[ext]'
       }
     }]
+  },
+  optimization: {
+    runtimeChunk: true,
+    splitChunks: {
+      chunks: 'all',
+    }
   },
   performance: {
     hints: production ? 'warning' : false

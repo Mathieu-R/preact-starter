@@ -21,37 +21,27 @@ _prod_ : css is extracted in its own **.css** file.
 
 ```
 module.exports = {
-    title: '', // <title> of index.html
     port: {
         front: 3000, // port for devServer
-        back: 8080 // port for backend api (proxytable)
     },
     entry: {
         front: [path.resolve(__dirname, 'front/static/js/components/app.js')], // entrypoint for front js file
     },
-    vendor: ['preact'],
-    devtool: production ? 'source-map' : 'eval-source-map',
-    componentsPath: path.resolve(__dirname, 'front/static/js/components'), // path for components (aliases)
-    staticPath: path.resolve(__dirname, 'front/static'), // path for static files (aliases)
+    devtool: production ? false : 'eval-cheap-module-source-map',
+    componentsPath: path.resolve(__dirname, 'src/components'), // path for components (aliases)
+    routesPath: path.resolve(__dirname, 'src/routes'),
+    staticPath: path.resolve(__dirname, 'src'), // path for static files (aliases)
+    template: './src/index.html' // path of template
 }
 ```
 
 ### Plugins :
 
 `ExtractTextPlugin` : Extract the css in its own file.    
-`CommonsChunkPlugin` : Avoid duplication of common shared modules.
-
-`DefinePlugin` : Allows to define global constants.    
-`OccurenceOrderPlugin` : "Assign the module and chunk ids by occurrence count. Reduce total file size." (1)    
-`UglifyJSPlugin` : Minify the js so it is lightweight
 
 `HotModuleReplacementPlugin` : Update on the fly the modules that have changed and live reload it (if you authorize with `module.hot.accept()`).    
-`NoEmitOnErrorPlugin` : Webpack does not compile assets with errors.     
-`NamedModulePlugin` : Name the modules whith their own names in devtool instead of showing numbers.
+
 `HtmlWebpackPlugin` : Generate an html files with js and css built-in.    
-`BundleAnalyzerPlugin` : Show a graph to analyse to weight of every module / bundle.
-`DashboardPlugin` : Show a dashboard in the terminal when you are using webpack-dev-server.
-`ModuleConcatenationPlugin` : Enable scope hoisting.
 
 ### Eslint and Editorconfig :
 
@@ -68,27 +58,10 @@ yarn
 ```    
 
 ##### Dev :
-Launch the `webpack-dev-server` and try to launch a `node server` from **back/server.js** in parallel.
+Launch the `webpack-dev-server`
 
 ```
-yarn dev
-```
-
-> In case you don't want to launch a node server (no node backend in your app).
-Launch the `webpack-dev-server` only.
-```js
-// config.js
-module.exports = {
-    ....
-    entry: {
-        ...
-        back: false
-    }
-    ...
-```
-
-```
-yarn watch
+yarn start
 ```
 
 ##### Build :      
@@ -102,4 +75,7 @@ yarn build
 
 ### Caveat : 
 - By default, only js files in `src` are transpiled as recommended by https://webpack.js.org/guides/build-performance/
+
+### TODO
+[ ] autoprefixer with postcss
 
