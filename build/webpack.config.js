@@ -149,7 +149,7 @@ const common = {
   optimization: {
     runtimeChunk: true,
     splitChunks: {
-      chunks: 'all',
+      chunks: 'all'
     }
   },
   performance: {
