@@ -5,13 +5,19 @@
       "targets": {
         "browsers": ["last 2 versions", "IE >= 9"]
       },
-      "exclude": ["transform-async-to-generator"]
+      "exclude": ["transform-regenerator", "transform-async-to-generator"]
     }]
   ],
   "plugins": [
     ["@babel/plugin-transform-react-jsx", {"pragma": "h"}],
     ["@babel/plugin-proposal-object-rest-spread"],
     ["transform-react-remove-prop-types"],
-    ["module:fast-async", {"spec": true}]
+    ["module:fast-async", {
+      "compiler": {
+        "promises": true,
+        "generators": false
+      },
+      "spec": true
+    }]
   ]
 }
